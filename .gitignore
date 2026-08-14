@@ -1,0 +1,60 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+.next-build/
+.next-dev/
+.next-local/
+out/
+
+# production
+build/
+
+# local env files
+.env
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local tooling and temporary files
+.tools/
+tmp/
+.codex-remote-attachments/
+tools/*.exe
+public/images/_debug*
+public/images/*.tmp.png
+public/images/*.checkerboard-backup.png
+assets/
+public/images/botanical-left-overlay*.png
+public/images/project-bake-fresh-*.png
+public/images/project-books-desktop.png
+public/images/project-books-desktop-v[2-5].png
+public/images/project-books-mobile.png
+public/images/project-books-mobile-v[2-5].png
+public/images/project-glamour-desktop-mockup.png
+public/images/project-glamour-main-mockup.png
+public/images/project-glamour-main-mockup-v[2-3].png
+public/images/project-la-terra-viva-desktop-mockup.png
+public/images/project-la-terra-viva-tablet-mockup.png
+public/images/project-serenia-desktop-mockup.png
+public/images/project-serenia-desktop-mockup-v2.png
+public/images/project-serenia-main-mockup.png
+public/images/project-serenia-main-mockup-v*.png
+public/images/project-serenia-main-mockup-transparent-test*.png
+public/images/project-serenia-main-mockup-transparent-v2-preview.png
+public/images/project-serenia-mobile-mockup.png
+public/images/project-serenia-mobile-mockup-v2.png
+public/images/project-serenia-tablet-mockup.png
+public/images/project-serenia-tablet-mockup-v2.png
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

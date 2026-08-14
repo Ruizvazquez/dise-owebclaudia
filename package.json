@@ -1,0 +1,34 @@
+{
+  "name": "portfolio-claudia",
+  "version": "1.0.0",
+  "description": "Portfolio premium Secret Garden para disenadora y desarrolladora web.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "framer-motion": "^12.42.2",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.25",
+    "next": "^15.5.22",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.22",
+    "postcss": "^8.5.24",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.8.3"
+  }
+}
