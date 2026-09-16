@@ -182,6 +182,45 @@ export const projectCases: ProjectCase[] = [
     result:
       "Una web pensada para mostrar tratamientos de masaje con claridad, coherencia visual y una navegación sencilla desde cualquier dispositivo.",
   },
+  {
+    slug: "alba-galeria-de-arte",
+    name: "Alba Galería de Arte",
+    type: "E-commerce",
+    client: "Alba Galería de Arte",
+    year: "2026",
+    service: "E-commerce, diseño web, dirección visual",
+    projectType: "Tienda online de arte",
+    image: "/images/project-jewelry-shop.jpg",
+    imagePosition: "18% 58%",
+    imageAlt:
+      "Imagen de referencia para una tienda online de piezas artísticas únicas",
+    intro:
+      "Una galería de arte online creada para descubrir y comprar piezas únicas desde cualquier dispositivo.",
+    summaryTitle: "Una tienda online para acercar el arte a nuevas miradas",
+    summary:
+      "Alba Galería de Arte necesitaba un espacio digital que transmitiera el valor de cada obra y facilitara la compra online sin perder la sensibilidad de una visita a galería. La propuesta organiza las piezas de forma clara, da protagonismo a la imagen y acompaña al visitante desde el descubrimiento hasta la compra con una experiencia cuidada y responsive.",
+    visitLabel: "Ver enfoque",
+    stages: [
+      {
+        title: "Estrategia",
+        text: "Definición de categorías, fichas de obra y recorrido de compra.",
+      },
+      {
+        title: "Diseño",
+        text: "Dirección visual sobria para que cada pieza sea la protagonista.",
+      },
+      {
+        title: "Desarrollo",
+        text: "E-commerce responsive pensado para descubrir y comprar con facilidad.",
+      },
+      {
+        title: "Resultado",
+        text: "Una galería digital clara, elegante y preparada para crecer.",
+      },
+    ],
+    result:
+      "Una experiencia de compra online que presenta cada obra con calma, contexto y una navegación sencilla desde móvil, tablet y escritorio.",
+  },
 ];
 
 export function getProjectCase(slug: string) {

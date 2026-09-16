@@ -4840,3 +4840,51 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Four-project book archive. */
+.desktop-book-hit { height: 25%; }
+.desktop-book-hit-0 { top: 0; }
+.desktop-book-hit-1 { top: 25%; }
+.desktop-book-hit-2 { top: 50%; }
+.desktop-book-hit-3 { top: 75%; }
+.desktop-book-hit::after {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: #f5efe1;
+  font-family: var(--font-serif);
+  font-size: clamp(0.7rem, 1.45vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.desktop-book-hit-0::after { content: "La Terra Viva"; }
+.desktop-book-hit-1::after { content: "Glamour Perruquería"; }
+.desktop-book-hit-2::after { content: "Serenia"; }
+.desktop-book-hit-3::after { content: "Alba Galería de Arte"; }
+.mobile-book-hit { width: 25%; }
+.mobile-book-hit-0 { left: 0; }
+.mobile-book-hit-1 { left: 25%; }
+.mobile-book-hit-2 { left: 50%; }
+.mobile-book-hit-3 { left: 75%; }
+.mobile-book-hit::after {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: #f5efe1;
+  font-family: var(--font-serif);
+  font-size: clamp(0.52rem, 2.2vw, 0.76rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  padding: 0 0.18rem;
+  text-align: center;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.mobile-book-hit-0::after { content: "La Terra Viva"; }
+.mobile-book-hit-1::after { content: "Glamour Perruquería"; }
+.mobile-book-hit-2::after { content: "Serenia"; }
+.mobile-book-hit-3::after { content: "Alba Galería de Arte"; }

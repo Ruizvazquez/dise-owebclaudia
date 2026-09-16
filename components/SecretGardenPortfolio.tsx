@@ -935,7 +935,7 @@ export default function SecretGardenPortfolio() {
           <div className="book-stack book-stack-art">
             <Image
               className="project-books-image"
-              src="/images/project-books-desktop-v6.png"
+              src="/images/project-books-desktop-v7.png"
               alt="Libros apilados con los nombres de los proyectos del archivo"
               fill
               sizes="(max-width: 1180px) 62vw, 52vw"
@@ -954,7 +954,7 @@ export default function SecretGardenPortfolio() {
         <div className="mobile-project-books mobile-book-shelf" aria-label={t.projectsTitle}>
           <Image
             className="mobile-book-shelf-image"
-            src="/images/project-books-mobile-v6.png"
+            src="/images/project-books-mobile-v7.png"
             alt="Libros verticales con los nombres de los proyectos para navegar el portfolio"
             fill
             sizes="(max-width: 760px) 88vw"
