@@ -4888,3 +4888,52 @@ h3 {
 .mobile-book-hit-1::after { content: "Glamour Perruquería"; }
 .mobile-book-hit-2::after { content: "Serenia"; }
 .mobile-book-hit-3::after { content: "Alba Galería de Arte"; }
+
+
+/* Corrected four-project book alignment. */
+.book-stack-art {
+  width: min(118%, 980px);
+  margin-left: -6%;
+}
+
+.desktop-book-hit {
+  left: 11%;
+  right: 11%;
+  height: 21.5%;
+}
+
+.desktop-book-hit-0 { top: 5.5%; }
+.desktop-book-hit-1 { top: 27.5%; }
+.desktop-book-hit-2 { top: 49.5%; }
+.desktop-book-hit-3 { top: 71.5%; }
+
+.desktop-book-hit::after {
+  font-size: clamp(0.72rem, 1.35vw, 1.15rem);
+  line-height: 1;
+}
+
+.desktop-book-hit-0::after { color: #4d3d2b; }
+
+.mobile-book-shelf {
+  width: min(66vw, 252px);
+  max-width: 252px;
+}
+
+.mobile-book-hit {
+  top: 4.5%;
+  bottom: 4.5%;
+  width: 20.5%;
+}
+
+.mobile-book-hit-0 { left: 8.75%; }
+.mobile-book-hit-1 { left: 29.25%; }
+.mobile-book-hit-2 { left: 49.75%; }
+.mobile-book-hit-3 { left: 70.25%; }
+
+.mobile-book-hit::after {
+  font-size: clamp(0.6rem, 2.5vw, 0.86rem);
+  line-height: 1;
+  padding: 0;
+}
+
+.mobile-book-hit-0::after { color: #4d3d2b; }
