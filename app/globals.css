@@ -1576,27 +1576,6 @@ h3 {
   transform: translateY(-2px);
 }
 
-.desktop-book-hit-0 {
-  top: 5%;
-  right: 4%;
-  left: 18%;
-  height: 29%;
-}
-
-.desktop-book-hit-1 {
-  top: 31%;
-  right: 9%;
-  left: 1%;
-  height: 31%;
-}
-
-.desktop-book-hit-2 {
-  top: 58%;
-  right: 1%;
-  left: 6%;
-  height: 35%;
-}
-
 .book-spine {
   position: relative;
   display: grid;
@@ -1722,9 +1701,9 @@ h3 {
 }
 
 .mobile-book-shelf {
-  aspect-ratio: 719 / 1687;
-  width: min(58vw, 220px);
-  max-width: 220px;
+  aspect-ratio: 1024 / 1536;
+  width: min(80vw, 350px);
+  max-width: 350px;
   min-height: 0;
   overflow: hidden;
   border-radius: 0;
@@ -1763,21 +1742,6 @@ h3 {
   background: rgba(251, 248, 241, 0.08);
   outline: none;
   transform: translateY(-2px);
-}
-
-.mobile-book-hit-0 {
-  left: 2%;
-  width: 31%;
-}
-
-.mobile-book-hit-1 {
-  left: 34%;
-  width: 31%;
-}
-
-.mobile-book-hit-2 {
-  left: 66%;
-  width: 32%;
 }
 
 .mobile-book-volume {
@@ -4842,98 +4806,33 @@ h3 {
 }
 
 
-/* Four-project book archive. */
-.desktop-book-hit { height: 25%; }
-.desktop-book-hit-0 { top: 0; }
-.desktop-book-hit-1 { top: 25%; }
-.desktop-book-hit-2 { top: 50%; }
-.desktop-book-hit-3 { top: 75%; }
-.desktop-book-hit::after {
-  display: grid;
-  height: 100%;
-  place-items: center;
-  color: #f5efe1;
-  font-family: var(--font-serif);
-  font-size: clamp(0.7rem, 1.45vw, 1.2rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-transform: uppercase;
-}
-.desktop-book-hit-0::after { content: "La Terra Viva"; }
-.desktop-book-hit-1::after { content: "Glamour Perruquería"; }
-.desktop-book-hit-2::after { content: "Serenia"; }
-.desktop-book-hit-3::after { content: "Alba Galería de Arte"; }
-.mobile-book-hit { width: 25%; }
-.mobile-book-hit-0 { left: 0; }
-.mobile-book-hit-1 { left: 25%; }
-.mobile-book-hit-2 { left: 50%; }
-.mobile-book-hit-3 { left: 75%; }
-.mobile-book-hit::after {
-  display: grid;
-  height: 100%;
-  place-items: center;
-  color: #f5efe1;
-  font-family: var(--font-serif);
-  font-size: clamp(0.52rem, 2.2vw, 0.76rem);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-  padding: 0 0.18rem;
-  text-align: center;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-}
-.mobile-book-hit-0::after { content: "La Terra Viva"; }
-.mobile-book-hit-1::after { content: "Glamour Perruquería"; }
-.mobile-book-hit-2::after { content: "Serenia"; }
-.mobile-book-hit-3::after { content: "Alba Galería de Arte"; }
-
-
-/* Corrected four-project book alignment. */
+/* Each transparent image includes its embossed titles; links follow each spine. */
 .book-stack-art {
-  width: min(118%, 980px);
-  margin-left: -6%;
+  width: min(122%, 1000px);
+  aspect-ratio: 1967 / 800;
+  margin-left: -8%;
 }
 
 .desktop-book-hit {
-  left: 11%;
-  right: 11%;
-  height: 21.5%;
+  border-radius: 4px;
 }
 
-.desktop-book-hit-0 { top: 5.5%; }
-.desktop-book-hit-1 { top: 27.5%; }
-.desktop-book-hit-2 { top: 49.5%; }
-.desktop-book-hit-3 { top: 71.5%; }
-
-.desktop-book-hit::after {
-  font-size: clamp(0.72rem, 1.35vw, 1.15rem);
-  line-height: 1;
-}
-
-.desktop-book-hit-0::after { color: #4d3d2b; }
+.desktop-book-hit-0 { top: 3%; right: 4%; left: 18%; height: 31%; }
+.desktop-book-hit-1 { top: 34%; right: 3%; left: 1%; height: 25%; }
+.desktop-book-hit-2 { top: 59%; right: 3%; left: 6%; height: 17%; }
+.desktop-book-hit-3 { top: 76%; right: 2%; left: 5%; height: 21%; }
 
 .mobile-book-shelf {
-  width: min(66vw, 252px);
-  max-width: 252px;
+  aspect-ratio: 1024 / 1536;
 }
 
 .mobile-book-hit {
-  top: 4.5%;
-  bottom: 4.5%;
-  width: 20.5%;
+  top: 1%;
+  bottom: 1%;
+  border-radius: 4px;
 }
 
-.mobile-book-hit-0 { left: 8.75%; }
-.mobile-book-hit-1 { left: 29.25%; }
-.mobile-book-hit-2 { left: 49.75%; }
-.mobile-book-hit-3 { left: 70.25%; }
-
-.mobile-book-hit::after {
-  font-size: clamp(0.6rem, 2.5vw, 0.86rem);
-  line-height: 1;
-  padding: 0;
-}
-
-.mobile-book-hit-0::after { color: #4d3d2b; }
+.mobile-book-hit-0 { left: 6%; width: 21%; }
+.mobile-book-hit-1 { left: 28%; width: 21%; }
+.mobile-book-hit-2 { left: 50%; width: 21%; }
+.mobile-book-hit-3 { left: 72%; width: 22%; }

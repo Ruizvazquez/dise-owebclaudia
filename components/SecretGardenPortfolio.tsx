@@ -132,6 +132,7 @@ const copy: Record<Locale, Copy> = {
       ["La Terra Viva", "E-commerce"],
       ["Glamour Perruquería", "Diseño web"],
       ["Serenia", "Web de servicios"],
+      ["Alba Galería de Arte", "E-commerce"],
     ],
     projectDetails: [
       {
@@ -149,6 +150,12 @@ const copy: Record<Locale, Copy> = {
       {
         summary: "Un catálogo digital para productos de cabina con composición de escaparate, fichas limpias y una atmósfera calmada para facilitar la exploración.",
         highlights: ["Catálogo visual", "Arquitectura simple", "Estilo premium accesible"],
+        cta: "Ver enfoque",
+        close: "Cerrar libro",
+      },
+      {
+        summary: "Una galería de arte online para descubrir y comprar piezas únicas con una experiencia visual cuidada.",
+        highlights: ["E-commerce de arte", "Fichas de obra", "Compra responsive"],
         cta: "Ver enfoque",
         close: "Cerrar libro",
       },
@@ -299,9 +306,10 @@ const copy: Record<Locale, Copy> = {
     exploreProjects: "Click a book to view the project",
     moreWork: "More work",
     projects: [
-      ["Wild Roots", "Brand & Website"],
-      ["Solena Retreat", "Website Design"],
-      ["Forest Whisper", "Brand & Website"],
+      ["La Terra Viva", "E-commerce"],
+      ["Glamour Perruquería", "Website Design"],
+      ["Serenia", "Service Website"],
+      ["Alba Galería de Arte", "E-commerce"],
     ],
     projectDetails: [
       {
@@ -319,6 +327,12 @@ const copy: Record<Locale, Copy> = {
       {
         summary: "A digital product catalogue with a curated display feeling, clean product cards and a calm atmosphere for easy exploration.",
         highlights: ["Visual catalogue", "Simple structure", "Accessible premium style"],
+        cta: "View approach",
+        close: "Close book",
+      },
+      {
+        summary: "An online art gallery to discover and buy unique pieces through a carefully designed experience.",
+        highlights: ["Art e-commerce", "Artwork pages", "Responsive shopping"],
         cta: "View approach",
         close: "Close book",
       },
@@ -935,7 +949,7 @@ export default function SecretGardenPortfolio() {
           <div className="book-stack book-stack-art">
             <Image
               className="project-books-image"
-              src="/images/project-books-desktop-v7.png"
+              src="/images/project-books-desktop-v8.png"
               alt="Libros apilados con los nombres de los proyectos del archivo"
               fill
               sizes="(max-width: 1180px) 62vw, 52vw"
@@ -954,7 +968,7 @@ export default function SecretGardenPortfolio() {
         <div className="mobile-project-books mobile-book-shelf" aria-label={t.projectsTitle}>
           <Image
             className="mobile-book-shelf-image"
-            src="/images/project-books-mobile-v7.png"
+            src="/images/project-books-mobile-v8.png"
             alt="Libros verticales con los nombres de los proyectos para navegar el portfolio"
             fill
             sizes="(max-width: 760px) 88vw"
