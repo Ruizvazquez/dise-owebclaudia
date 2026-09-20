@@ -3726,6 +3726,14 @@ h3 {
   aspect-ratio: 862 / 1824;
 }
 
+.project-case-alba-galeria-de-arte .showcase-static-tablet {
+  aspect-ratio: 795 / 1100;
+}
+
+.project-case-alba-galeria-de-arte .showcase-static-mobile {
+  aspect-ratio: 853 / 1280;
+}
+
 .project-case-solena-retreat .showcase-static-desktop {
   width: min(100%, 820px);
   aspect-ratio: 1 / 1;
@@ -4592,6 +4600,10 @@ h3 {
     margin-left: 12px;
   }
 
+  .project-case-alba-galeria-de-arte .project-case-image {
+    transform: translateX(-6px);
+  }
+
   .project-main-mockup {
     min-height: 330px;
     padding: 8px 0 46px;
@@ -4721,6 +4733,18 @@ h3 {
 
   .project-case-forest-whisper .showcase-static-tablet {
     width: min(68vw, 270px);
+  }
+
+  .project-case-alba-galeria-de-arte .showcase-static-desktop {
+    width: min(92vw, 390px);
+  }
+
+  .project-case-alba-galeria-de-arte .showcase-static-tablet {
+    width: min(70vw, 260px);
+  }
+
+  .project-case-alba-galeria-de-arte .showcase-static-mobile {
+    width: min(56vw, 210px);
   }
 
   .showcase-device {

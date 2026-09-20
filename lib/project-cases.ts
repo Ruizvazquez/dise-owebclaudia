@@ -197,6 +197,15 @@ export const projectCases: ProjectCase[] = [
     heroMockupImage: "/images/project-alba-main-mockup-transparent-v1.png",
     heroMockupAlt:
       "Mockup de Alba Galería de Arte en ordenador y móvil, acompañado de piezas decorativas",
+    showcaseDesktopImage: "/images/project-alba-desktop-mockup-transparent.png",
+    showcaseDesktopAlt:
+      "Portátil con el catálogo de obras de Alba Galería de Arte",
+    showcaseTabletImage: "/images/project-alba-tablet-mockup-transparent.png",
+    showcaseTabletAlt:
+      "Tablet con el catálogo de Alba Galería de Arte",
+    showcaseMobileImage: "/images/project-alba-mobile-mockup-transparent.png",
+    showcaseMobileAlt:
+      "Móvil con una obra del catálogo de Alba Galería de Arte",
     intro:
       "Una galería de arte online creada para descubrir y comprar piezas únicas desde cualquier dispositivo.",
     summaryTitle: "Una tienda online para acercar el arte a nuevas miradas",
