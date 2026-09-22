@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Instrument_Serif, Inter } from "next/font/google";
 import ScrollManager from "@/components/ScrollManager";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -78,6 +79,7 @@ export default function RootLayout({
       >
         <ScrollManager />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
