@@ -191,7 +191,7 @@ const copy: Record<Locale, Copy> = {
       titleA: "Diseño webs con",
       titleEm: "cercanía, detalle",
       titleB: "y mucho cuidado",
-      text: "Soy Claudia, diseñadora y desarrolladora web especializada en crear páginas para pequeños negocios y autónomos que buscan una presencia profesional, cuidada y hecha a medida. Cada proyecto lo trabajo de forma cercana, escuchando tus necesidades y prestando atención a cada detalle para que tu web no solo sea bonita, sino que también represente tu negocio y genere confianza desde el primer vistazo.",
+      text: "Soy Claudia, diseñadora y desarrolladora web con titulación de la UOC en Diseño y Maquetación Web, especializada en crear páginas para pequeños negocios y autónomos que buscan una presencia profesional, cuidada y hecha a medida. Cada proyecto lo trabajo de forma cercana, escuchando tus necesidades y prestando atención a cada detalle para que tu web no solo sea bonita, sino que también represente tu negocio y genere confianza desde el primer vistazo.",
       points: [
         "Trato cercano durante todo el proyecto.",
         "Diseño cuidado y totalmente personalizado.",
@@ -368,7 +368,7 @@ const copy: Record<Locale, Copy> = {
       titleA: "I design websites with",
       titleEm: "closeness, detail",
       titleB: "and real care",
-      text: "I am Claudia, a web designer and developer specialized in creating websites for small businesses and self-employed professionals who want a professional, polished and tailored online presence. I work on every project closely, listening to your needs and paying attention to each detail so your website is not only beautiful, but also represents your business and builds trust from the first glance.",
+      text: "I am Claudia, a web designer and developer with a UOC qualification in Web Design and Layout, specialized in creating websites for small businesses and self-employed professionals who want a professional, polished and tailored online presence. I work on every project closely, listening to your needs and paying attention to each detail so your website is not only beautiful, but also represents your business and builds trust from the first glance.",
       points: [
         "Close support throughout the whole project.",
         "Careful and fully personalized design.",
