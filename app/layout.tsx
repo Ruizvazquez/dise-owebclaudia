@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Instrument_Serif, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import ScrollManager from "@/components/ScrollManager";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const cormorant = localFont({
+  src: "./fonts/cormorant-garamond-latin.woff2",
+  weight: "400 700",
   variable: "--font-cormorant",
 });
 
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
+const instrument = localFont({
+  src: "./fonts/instrument-serif-latin.woff2",
+  weight: "400",
   variable: "--font-instrument",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter-latin.woff2",
+  weight: "100 900",
   variable: "--font-inter",
 });
 
