@@ -45,27 +45,27 @@ const baseMetadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Claudia Ruiz | Diseño web para pequeños negocios y autónomos",
+    title: "Claudia Ruiz | Disseny web per a petits negocis i autònoms",
     description:
-      "Diseño webs cuidadas, rápidas y optimizadas para pequeños negocios y autónomos. Una presencia digital hecha a medida para crecer con claridad y propósito.",
+      "Dissenyo webs cuidades, ràpides i optimitzades per a petits negocis i autònoms. Una presència digital feta a mida per créixer amb claredat i propòsit.",
     url: "/",
-    siteName: "Claudia Ruiz · Estudio de Diseño Web",
-    locale: "es_ES",
+    siteName: "Claudia Ruiz · Estudi de Disseny Web",
+    locale: "ca_ES",
     type: "website",
     images: [
       {
         url: "/images/secret-garden-hero.png",
         width: 1792,
         height: 1024,
-        alt: "Mesa de trabajo en un jardín luminoso con portátil, flores y estética editorial",
+        alt: "Taula de treball en un jardí lluminós amb portàtil, flors i estètica editorial",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claudia Ruiz | Diseño web para pequeños negocios y autónomos",
+    title: "Claudia Ruiz | Disseny web per a petits negocis i autònoms",
     description:
-      "Diseño web a medida, landing pages, rediseño y mantenimiento web para pequeños negocios y autónomos.",
+      "Disseny web a mida, landing pages, redisseny i manteniment web per a petits negocis i autònoms.",
     images: ["/images/secret-garden-hero.png"],
   },
 };
