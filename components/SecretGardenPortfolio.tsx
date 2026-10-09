@@ -660,7 +660,7 @@ function getBrowserLocale(): Locale {
     return "es";
   }
 
-  return localeFromLanguages(navigator.languages?.length ? navigator.languages : [navigator.language]);
+  return localeFromLanguages([navigator.language, ...(navigator.languages ?? [])]);
 }
 
 function FadeIn({
@@ -720,12 +720,15 @@ function Sparkles({ className = "" }: { className?: string }) {
   );
 }
 
-export default function SecretGardenPortfolio() {
+export default function SecretGardenPortfolio({ initialLocale }: { initialLocale: Locale }) {
   const reduceMotion = useReducedMotion();
   const lenisRef = useRef<{ scrollTo: (target: HTMLElement | string | number, options?: { duration?: number }) => void } | null>(null);
   const projectSelectRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [locale] = useState<Locale>(getBrowserLocale);
+  const [locale] = useState<Locale>(() => {
+    const browserLocale = getBrowserLocale();
+    return initialLocale === "ca" || browserLocale === "ca" ? "ca" : browserLocale;
+  });
   const [projectSelectOpen, setProjectSelectOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState("");
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "success" | "error">("idle");

@@ -1,11 +1,12 @@
 export type Locale = "es" | "ca" | "en";
 
 export function localeFromLanguages(languages: readonly string[] | undefined): Locale {
-  for (const language of languages ?? []) {
-    const code = language.trim().toLowerCase().split("-")[0];
-    if (code === "ca" || code === "es" || code === "en") {
-      return code;
-    }
+  const codes = (languages ?? []).map((language) => language.trim().toLowerCase().split("-")[0]);
+
+  if (codes.includes("ca")) return "ca";
+
+  for (const code of codes) {
+    if (code === "es" || code === "en") return code;
   }
 
   return "en";
