@@ -28,6 +28,8 @@
   result: string;
 };
 
+import { catalanProjectCopy } from "./project-cases-ca";
+
 export const projectCases: ProjectCase[] = [
   {
     slug: "wild-roots",
@@ -235,7 +237,10 @@ export const projectCases: ProjectCase[] = [
   },
 ];
 
-export function getProjectCase(slug: string) {
-  return projectCases.find((project) => project.slug === slug);
+export function getProjectCase(slug: string, locale: "es" | "ca" | "en" = "es") {
+  const project = projectCases.find((item) => item.slug === slug);
+  if (!project || locale !== "ca") return project;
+
+  return { ...project, ...catalanProjectCopy[slug] };
 }
 

@@ -1,11 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { localeFromLanguages } from "@/lib/locale";
 
 const SecretGardenPortfolio = dynamic(() => import("./SecretGardenPortfolio"), {
   ssr: false,
-  loading: () => (
-    <main className="garden-loading" aria-label="Abriendo portfolio">
+  loading: () => {
+    const locale = typeof navigator === "undefined" ? "es" : localeFromLanguages(navigator.languages?.length ? navigator.languages : [navigator.language]);
+    const label = locale === "ca" ? "Obrint el portafolis" : locale === "en" ? "Opening portfolio" : "Abriendo portfolio";
+    const text = locale === "ca" ? "Obrint el jardí..." : locale === "en" ? "Opening the garden..." : "Abriendo el jardín...";
+    return (
+    <main className="garden-loading" aria-label={label}>
       <span className="loading-sparkles" aria-hidden="true">
         <span />
         <span />
@@ -16,9 +21,10 @@ const SecretGardenPortfolio = dynamic(() => import("./SecretGardenPortfolio"), {
       </span>
       <span className="loading-butterfly" aria-hidden="true" />
       <span className="loading-mark">CR</span>
-      <p>Abriendo el jardín...</p>
+      <p>{text}</p>
     </main>
-  ),
+    );
+  },
 });
 
 export default function GardenMount() {

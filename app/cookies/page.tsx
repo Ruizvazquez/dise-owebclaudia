@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import LegalPage from "@/components/LegalPage";
+import { legalCopyCa } from "@/lib/legal-copy-ca";
+import { localeFromAcceptLanguage } from "@/lib/locale";
 
-export const metadata: Metadata = {
-  title: "Política de Cookies",
-  description: "Información sobre el uso de cookies en la web de Claudia Ruiz.",
-  alternates: {
-    canonical: "/cookies",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  return {
+    title: isCatalan ? "Política de galetes" : "Política de Cookies",
+    description: isCatalan
+      ? "Informació sobre l'ús de galetes al web de Claudia Ruiz."
+      : "Información sobre el uso de cookies en la web de Claudia Ruiz.",
+    alternates: { canonical: "/cookies" },
+  };
+}
 
-export default function CookiesPage() {
+export default async function CookiesPage() {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  if (isCatalan) return <LegalPage locale="ca" {...legalCopyCa.cookies} />;
+
   return (
     <LegalPage
       eyebrow="Cookies"

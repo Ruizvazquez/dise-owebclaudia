@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Locale } from "@/lib/locale";
 
 type LegalSection = {
   title: string;
@@ -7,6 +8,7 @@ type LegalSection = {
 };
 
 type LegalPageProps = {
+  locale?: Locale;
   eyebrow: string;
   title: string;
   description: string;
@@ -14,7 +16,8 @@ type LegalPageProps = {
   sections: LegalSection[];
 };
 
-export default function LegalPage({ eyebrow, title, description, updated, sections }: LegalPageProps) {
+export default function LegalPage({ locale = "es", eyebrow, title, description, updated, sections }: LegalPageProps) {
+  const isCatalan = locale === "ca";
   return (
     <main className="legal-page">
       <span className="paper-grain" aria-hidden="true" />
@@ -23,15 +26,15 @@ export default function LegalPage({ eyebrow, title, description, updated, sectio
       <span className="left-garden-veil legal-veil" aria-hidden="true" />
 
       <header className="legal-header">
-        <Link className="vl-brand" href="/#home" aria-label="Volver al inicio">
+        <Link className="vl-brand" href="/#home" aria-label={isCatalan ? "Tornar a l'inici" : "Volver al inicio"}>
           <span className="vl-mark" aria-hidden="true">CR</span>
           <span>
             <strong>Claudia Ruiz</strong>
-            <small>Estudio de diseño web</small>
+            <small>{isCatalan ? "Estudi de disseny web" : "Estudio de diseño web"}</small>
           </span>
         </Link>
         <Link className="project-back-link" href="/#home">
-          &larr; Volver a la web
+          &larr; {isCatalan ? "Tornar al web" : "Volver a la web"}
         </Link>
       </header>
 
@@ -39,7 +42,7 @@ export default function LegalPage({ eyebrow, title, description, updated, sectio
         <p className="mini-label">{eyebrow}</p>
         <h1>{title}</h1>
         <p className="legal-lead">{description}</p>
-        <p className="legal-updated">Última actualización: {updated}</p>
+        <p className="legal-updated">{isCatalan ? "Darrera actualització" : "Última actualización"}: {updated}</p>
 
         {sections.map((section) => (
           <section key={section.title}>

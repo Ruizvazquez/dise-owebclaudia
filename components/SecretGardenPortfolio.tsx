@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent, type ReactNode } from "react";
-import { projectCases } from "@/lib/project-cases";
+import { getProjectCase, projectCases } from "@/lib/project-cases";
+import { localeFromLanguages, type Locale } from "@/lib/locale";
 
 const gardenImage = "/images/secret-garden-hero.png";
 const aboutImage = "/images/claudia-ruiz-about.jpg";
-type Locale = "es" | "en";
 type Service = [title: string, text: string, points: string[]];
 type ProjectDetail = {
   summary: string;
@@ -299,6 +299,156 @@ const copy: Record<Locale, Copy> = {
       copyright: "© 2026 Claudia Ruiz · Estudio de Diseño Web",
     },
   },
+  ca: {
+    studio: "Estudi de disseny web",
+    homeLabel: "Inici de Claudia Ruiz",
+    menu: {
+      open: "Obrir el menú",
+      close: "Tancar el menú",
+      label: "Navegació principal",
+    },
+    nav: [
+      ["Serveis", "servicios"],
+      ["Projectes", "archivo-de-proyectos"],
+      ["Sobre mi", "sobre-mi"],
+      ["El procés", "proceso"],
+      ["FAQ", "faq"],
+      ["Contacte", "contacto"],
+    ],
+    talk: "Parlem-ne",
+    hero: {
+      label: "Webs que se senten vives",
+      titleA: "Disseny web per a",
+      titleEm: "petits negocis",
+      titleB: "que volen créixer",
+      text: "Creo pàgines web elegants, ràpides i optimitzades per a autònoms i petits negocis de tot Espanya. També mantinc el teu web actualitzat perquè tu et puguis centrar en el teu negoci.",
+      cta: "Veure projectes",
+      imageAlt: "Taula en un jardí secret amb un portàtil i llum de l'alba",
+    },
+    projectsLabel: "Treball destacat",
+    projectsTitle: "Arxiu de projectes",
+    projectsText: "Entre aquestes pàgines trobaràs històries que van començar amb una idea i van florir al web. Cada projecte s'ha dissenyat a mida per reflectir l'essència de cada negoci i oferir una experiència cuidada, clara i propera.",
+    exploreProjects: "Fes clic en un llibre per veure el projecte",
+    moreWork: "Més projectes",
+    projects: [
+      ["La Terra Viva", "Comerç electrònic"],
+      ["Glamour Perruquería", "Disseny web"],
+      ["Serenia", "Web de serveis"],
+      ["Alba Galería de Arte", "Comerç electrònic"],
+    ],
+    projectDetails: [
+      {
+        summary: "Una botiga en línia editorial per a una marca orgànica, amb una experiència visual neta, filtres senzills i una col·lecció de productes presentada com a peces d'autor.",
+        highlights: ["Comerç electrònic visual", "Direcció estètica", "Experiència adaptable"],
+        cta: "Veure l'enfocament",
+        close: "Tancar el llibre",
+      },
+      {
+        summary: "Un web de serveis per a una perruqueria, pensat per presentar tractaments, generar confiança i guiar cap a la reserva amb una estructura clara i visual.",
+        highlights: ["Serveis clars", "Contingut modular", "Reserva senzilla"],
+        cta: "Veure l'enfocament",
+        close: "Tancar el llibre",
+      },
+      {
+        summary: "Un catàleg digital de productes amb una presentació cuidada, fitxes clares i un ambient tranquil que facilita l'exploració.",
+        highlights: ["Catàleg visual", "Estructura senzilla", "Estil elegant i accessible"],
+        cta: "Veure l'enfocament",
+        close: "Tancar el llibre",
+      },
+      {
+        summary: "Una galeria d'art en línia per descobrir i comprar peces úniques amb una experiència visual cuidada.",
+        highlights: ["Comerç electrònic d'art", "Fitxes d'obra", "Compra des de qualsevol dispositiu"],
+        cta: "Veure l'enfocament",
+        close: "Tancar el llibre",
+      },
+    ],
+    servicesLabel: "Serveis",
+    servicesTitle: "Solucions digitals a mida",
+    servicesText: "Un estudi tranquil per dissenyar, desenvolupar i cuidar experiències web amb intenció.",
+    services: [
+      ["Disseny web", "Dissenyo pàgines web professionals que transmeten confiança i reflecteixen l'essència del teu negoci. Cada projecte es crea a mida, pensant en els teus objectius i en l'experiència dels teus clients.", ["Disseny personalitzat", "Adaptat a mòbils", "SEO bàsic inclòs", "Càrrega ràpida"]],
+      ["Desenvolupament i maquetació", "Transformo cada disseny en un web ràpid, estable i ben estructurat, cuidant tant l'experiència visual com el rendiment.", ["Codi net", "Alt rendiment", "Disseny adaptable", "Optimització tècnica"]],
+      ["Manteniment web", "El teu web necessita petites atencions per continuar funcionant com el primer dia. M'encarrego de les actualitzacions i els canvis perquè tu només t'hagis d'ocupar del teu negoci.", ["Canvis de contingut", "Actualització d'imatges", "Còpies de seguretat", "Suport tècnic"]],
+      ["Necessites alguna cosa diferent?", "Si el teu projecte necessita una landing page, renovar un web existent o qualsevol millora puntual, trobarem la solució que millor s'adapti al teu negoci.", ["Landing pages", "Redisseny web", "Canvis puntuals", "Solucions a mida"]],
+    ],
+    about: {
+      label: "Sobre mi",
+      titleA: "Dissenyo webs amb",
+      titleEm: "proximitat, detall",
+      titleB: "i molta cura",
+      text: "Soc la Claudia, dissenyadora i desenvolupadora web amb titulació de la UOC en Disseny i Maquetació Web. Estic especialitzada a crear pàgines per a petits negocis i autònoms que busquen una presència professional, cuidada i feta a mida. Treballo cada projecte de manera propera, escoltant les teves necessitats i parant atenció a cada detall perquè el teu web no només sigui bonic, sinó que també representi el teu negoci i generi confiança des del primer moment.",
+      points: ["Tracte proper durant tot el projecte.", "Disseny cuidat i totalment personalitzat.", "Comunicació directa i sense complicacions.", "Acompanyament també després del llançament."],
+      imageAlt: "Retrat de Claudia Ruiz",
+    },
+    processHeading: "El meu procés",
+    process: [
+      ["01", "Sembrar", "Coneixem el teu negoci, les teves idees i els teus objectius per crear una base sòlida sobre la qual construir el web."],
+      ["02", "Créixer", "Dissenyo i desenvolupo una proposta personalitzada, cuidant cada detall perquè reflecteixi l'essència de la teva marca."],
+      ["03", "Florir", "Revisem plegats el projecte i afinem cada element fins que tot encaixi de manera natural i harmoniosa."],
+      ["04", "Llançar", "Publiquem el teu web i, si ho necessites, continuo cuidant-lo perquè segueixi creixent amb el teu negoci."],
+    ],
+    faq: {
+      label: "Preguntes freqüents",
+      title: "Tot el que necessites saber abans de començar",
+      items: [
+        ["Quant triga a estar a punt la meva pàgina web?", "Depèn del tipus de projecte i dels continguts disponibles. Un web senzill sol necessitar entre 3 i 6 setmanes per dissenyar-lo, desenvolupar-lo i revisar-lo amb calma."],
+        ["Què necessito per començar?", "Una idea inicial, els teus objectius, referències visuals si en tens i els textos o continguts principals del teu negoci."],
+        ["Inclous el domini i l'allotjament?", "Et puc orientar per triar el domini i l'allotjament i deixar el web preparat, tot i que tots dos serveis es contracten sempre al teu nom."],
+        ["Treballes amb clients de tot Espanya?", "Sí. Treballo en línia amb petits negocis i autònoms de tot Espanya mitjançant videotrucades i contacte directe durant tot el projecte."],
+        ["Què inclou el manteniment web?", "Inclou canvis de text, imatges, promocions, nous serveis, esdeveniments, suport, còpies de seguretat i petites actualitzacions perquè el teu web continuï cuidat."],
+        ["El meu web s'adaptarà als mòbils?", "Sí. Totes les pàgines web es dissenyen i es desenvolupen perquè es vegin correctament al mòbil, la tauleta i l'ordinador, cuidant l'experiència en cada pantalla."],
+        ["Puc demanar canvis durant el disseny?", "Sí. Durant el procés revisarem plegats el projecte per assegurar-nos que el resultat reflecteixi exactament el que busques."],
+        ["Podré actualitzar el web pel meu compte?", "Els webs que desenvolupo estan pensats perquè jo em pugui encarregar del manteniment i de les actualitzacions. Així tindràs la tranquil·litat que tot continuarà funcionant correctament sense preocupar-te pels aspectes tècnics. Si necessites fer un canvi, només m'ho hauràs de dir."],
+        ["Quant costa una pàgina web?", {
+          intro: "Cada negoci és diferent; per això ofereixo diverses opcions segons les teves necessitats:",
+          packages: [
+            { title: "Web Essencial", price: "des de 450 € + IVA", description: "Una pàgina web amb fins a 5 seccions, ideal per presentar el teu negoci, mostrar els teus serveis o productes i facilitar el contacte." },
+            { title: "Web Catàleg", price: "des de 650 € + IVA", description: "Un web més complet, amb fins a 3 pàgines i un catàleg de fins a 15 productes organitzats per categories." },
+          ],
+          outro: "Necessites alguna cosa diferent? També preparo pressupostos personalitzats, sense compromís.",
+          vatLabel: "Preus amb IVA inclòs: ",
+          vatPrices: "des de 544,50 € i 786,50 €",
+          vatClosing: ", respectivament. Domini, allotjament i manteniment a part.",
+        }],
+      ],
+    },
+    quote: "Treballar amb Verde Luna va ser com un somni. Van entendre la meva visió i la van transformar en un web que reflecteix l'ànima de la meva marca.",
+    quoteBy: "- Isabella M. / Solena Retreat",
+    contact: {
+      label: "Parlem-ne",
+      titleA: "Fem créixer",
+      titleEm: "el teu",
+      titleB: "projecte",
+      text: "Tant si el teu projecte tot just comença com si vols renovar el teu web, explica'm la teva idea i dissenyarem un espai digital que reflecteixi l'essència de la teva marca i t'ajudi a créixer.",
+      cta: "Enviar missatge",
+      email: "ruizvazquezclaudia@gmail.com",
+      phone: "+34 682 649 545",
+      form: {
+        name: "El teu nom",
+        email: "El teu correu electrònic",
+        project: "Què necessites?",
+        projectPlaceholder: "Selecciona una opció",
+        projectOptions: ["Disseny web des de zero", "Redisseny d'un web", "Landing page", "Manteniment web", "Canvis o millores en un web", "Domini i allotjament", "No ho tinc clar, necessito assessorament"],
+        message: "Explica'm la teva idea o què necessites...",
+        submit: "Comencem a crear",
+        sending: "S'està enviant...",
+        success: "Missatge enviat. Et respondré tan aviat com pugui.",
+        error: "No s'ha pogut enviar el missatge. Escriu-me directament a ruizvazquezclaudia@gmail.com.",
+        activation: "Revisa el correu i activa el formulari des del missatge de FormSubmit. Després, els missatges arribaran correctament.",
+        projectRequired: "Selecciona què necessites abans d'enviar el missatge.",
+      },
+      imageAlt: "Camí cap a un jardí amagat",
+      seal: "Creixem plegats",
+    },
+    gardenBand: "Cada gran projecte comença amb una idea. La meva feina és ajudar-la a créixer fins a convertir-se en un web que representi l'essència del teu negoci.",
+    footer: {
+      description: "Disseny web per a petits negocis i autònoms.",
+      line: "Dissenyant webs amb calma, detall i propòsit.",
+      social: [],
+      legal: [["Avís legal", "/aviso-legal"], ["Privacitat", "/privacidad"], ["Galetes", "/cookies"]],
+      copyright: "© 2026 Claudia Ruiz · Estudi de Disseny Web",
+    },
+  },
   en: {
     studio: "Web Design Studio",
     homeLabel: "Verde Luna home",
@@ -498,7 +648,6 @@ const copy: Record<Locale, Copy> = {
 
 const projectPositions = projectCases.map((project) => project.imagePosition);
 const projectImages = projectCases.map((project) => project.image);
-const projectImageAlts = projectCases.map((project) => project.imageAlt);
 const projectSlugs = projectCases.map((project) => project.slug);
 
 const reveal = {
@@ -511,11 +660,7 @@ function getBrowserLocale(): Locale {
     return "es";
   }
 
-  return navigator.languages?.some((language) =>
-    language.toLowerCase().startsWith("es")
-  )
-    ? "es"
-    : "en";
+  return localeFromLanguages(navigator.languages?.length ? navigator.languages : [navigator.language]);
 }
 
 function FadeIn({
@@ -586,6 +731,7 @@ export default function SecretGardenPortfolio() {
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [contactMessage, setContactMessage] = useState("");
   const t = copy[locale];
+  const projectImageAlts = projectCases.map((project) => getProjectCase(project.slug, locale)?.imageAlt ?? project.imageAlt);
 
   const handleAnchorClick = (id: string) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -851,7 +997,7 @@ export default function SecretGardenPortfolio() {
         <span className="left-glow left-glow-c" />
       </div>
 
-      <section id="home" className="vl-hero" aria-label="Hero">
+      <section id="home" className="vl-hero" aria-label={locale === "ca" ? "Inici" : locale === "en" ? "Home" : "Inicio"}>
         <header className={`vl-header ${menuOpen ? "menu-open" : ""}`}>
           <Logo studio={t.studio} label={t.homeLabel} />
           <button
@@ -994,7 +1140,7 @@ export default function SecretGardenPortfolio() {
             <Image
               className="project-books-image"
               src="/images/project-books-desktop-v8.png"
-              alt="Libros apilados con los nombres de los proyectos del archivo"
+              alt={locale === "ca" ? "Llibres apilats amb els noms dels projectes de l'arxiu" : locale === "en" ? "Stacked books bearing the project names" : "Libros apilados con los nombres de los proyectos del archivo"}
               fill
               sizes="(max-width: 1180px) 62vw, 52vw"
             />
@@ -1013,7 +1159,7 @@ export default function SecretGardenPortfolio() {
           <Image
             className="mobile-book-shelf-image"
             src="/images/project-books-mobile-v8.png"
-            alt="Libros verticales con los nombres de los proyectos para navegar el portfolio"
+            alt={locale === "ca" ? "Llibres verticals amb els noms dels projectes per navegar pel portafolis" : locale === "en" ? "Upright books bearing the project names for portfolio navigation" : "Libros verticales con los nombres de los proyectos para navegar el portfolio"}
             fill
             sizes="(max-width: 760px) 88vw"
           />
@@ -1111,7 +1257,7 @@ export default function SecretGardenPortfolio() {
         </div>
       </section>
 
-      <section className="vl-quote" aria-label="Garden statement">
+      <section className="vl-quote" aria-label={locale === "ca" ? "Declaració de l'estudi" : locale === "es" ? "Declaración del estudio" : "Studio statement"}>
         <Sparkles className="quote-sparkles" />
         <Butterfly className="quote-butterfly" data-float />
         <FadeIn>

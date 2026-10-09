@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import LegalPage from "@/components/LegalPage";
+import { legalCopyCa } from "@/lib/legal-copy-ca";
+import { localeFromAcceptLanguage } from "@/lib/locale";
 
-export const metadata: Metadata = {
-  title: "Aviso Legal",
-  description: "Aviso legal de Claudia Ruiz, estudio de diseño web para pequeños negocios y autónomos.",
-  alternates: {
-    canonical: "/aviso-legal",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  return {
+    title: isCatalan ? "Avís legal" : "Aviso Legal",
+    description: isCatalan
+      ? "Avís legal de Claudia Ruiz, estudi de disseny web per a petits negocis i autònoms."
+      : "Aviso legal de Claudia Ruiz, estudio de diseño web para pequeños negocios y autónomos.",
+    alternates: { canonical: "/aviso-legal" },
+  };
+}
 
-export default function AvisoLegalPage() {
+export default async function AvisoLegalPage() {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  if (isCatalan) return <LegalPage locale="ca" {...legalCopyCa.avisoLegal} />;
+
   return (
     <LegalPage
       eyebrow="Información legal"

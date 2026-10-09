@@ -4638,9 +4638,13 @@ html.mobile-menu-locked .whatsapp-fab {
   }
 
   .project-case-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 34px;
     padding: 34px 22px 54px;
+  }
+
+  .project-case-copy {
+    min-width: 0;
   }
 
   .project-back-link {

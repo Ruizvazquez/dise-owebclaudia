@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
 import ScrollManager from "@/components/ScrollManager";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { localeFromAcceptLanguage } from "@/lib/locale";
 import "./globals.css";
 
 const cormorant = localFont({
@@ -22,8 +24,8 @@ const inter = localFont({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://claudiaruiz.studio"),
+const baseMetadata: Metadata = {
+  metadataBase: new URL("https://claudiaruiz.es"),
   title: {
     default: "Claudia Ruiz | Diseño web para pequeños negocios y autónomos",
     template: "%s | Claudia Ruiz",
@@ -68,19 +70,50 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = localeFromAcceptLanguage((await headers()).get("accept-language"));
+  if (locale !== "ca") return baseMetadata;
+
+  const title = "Claudia Ruiz | Disseny web per a petits negocis i autònoms";
+  const description = "Dissenyo pàgines web elegants, ràpides i optimitzades per a petits negocis i autònoms. Disseny a mida, redisseny i manteniment web.";
+  return {
+    ...baseMetadata,
+    title: { default: title, template: "%s | Claudia Ruiz" },
+    description,
+    keywords: ["disseny web", "disseny web per a petits negocis", "disseny web per a autònoms", "manteniment web", "redisseny web", "Claudia Ruiz"],
+    openGraph: {
+      title,
+      description,
+      url: "/",
+      siteName: "Claudia Ruiz · Estudi de Disseny Web",
+      locale: "ca_ES",
+      type: "website",
+      images: [{ url: "/images/secret-garden-hero.png", width: 1792, height: 1024, alt: "Taula de treball en un jardí lluminós amb portàtil i flors" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/secret-garden-hero.png"],
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = localeFromAcceptLanguage((await headers()).get("accept-language"));
+
   return (
-    <html lang="es">
+    <html lang={locale === "ca" ? "ca" : "es"}>
       <body
         className={`${cormorant.variable} ${instrument.variable} ${inter.variable}`}
       >
         <ScrollManager />
         {children}
-        <WhatsAppButton />
+        <WhatsAppButton locale={locale} />
       </body>
     </html>
   );

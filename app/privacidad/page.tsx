@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import LegalPage from "@/components/LegalPage";
+import { legalCopyCa } from "@/lib/legal-copy-ca";
+import { localeFromAcceptLanguage } from "@/lib/locale";
 
-export const metadata: Metadata = {
-  title: "Política de Privacidad",
-  description: "Política de privacidad de Claudia Ruiz y tratamiento de datos enviados mediante el formulario de contacto.",
-  alternates: {
-    canonical: "/privacidad",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  return {
+    title: isCatalan ? "Política de privacitat" : "Política de Privacidad",
+    description: isCatalan
+      ? "Política de privacitat de Claudia Ruiz i tractament de les dades enviades mitjançant el formulari de contacte."
+      : "Política de privacidad de Claudia Ruiz y tratamiento de datos enviados mediante el formulario de contacto.",
+    alternates: { canonical: "/privacidad" },
+  };
+}
 
-export default function PrivacidadPage() {
+export default async function PrivacidadPage() {
+  const isCatalan = localeFromAcceptLanguage((await headers()).get("accept-language")) === "ca";
+  if (isCatalan) return <LegalPage locale="ca" {...legalCopyCa.privacidad} />;
+
   return (
     <LegalPage
       eyebrow="Protección de datos"
