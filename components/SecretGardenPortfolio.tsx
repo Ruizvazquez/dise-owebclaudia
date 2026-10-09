@@ -15,6 +15,14 @@ type ProjectDetail = {
   cta: string;
   close: string;
 };
+type FaqPricingAnswer = {
+  intro: string;
+  packages: { title: string; price: string; description: string }[];
+  outro: string;
+  vatLabel: string;
+  vatPrices: string;
+  vatClosing: string;
+};
 type Copy = {
   studio: string;
   homeLabel: string;
@@ -55,7 +63,7 @@ type Copy = {
   faq: {
     label: string;
     title: string;
-    items: string[][];
+    items: [question: string, answer: string | FaqPricingAnswer][];
   };
   quote: string;
   quoteBy: string;
@@ -219,7 +227,25 @@ const copy: Record<Locale, Copy> = {
         ["¿Mi web será adaptable a móviles?", "Sí. Todas las páginas web se diseñan y desarrollan para verse correctamente en móvil, tablet y ordenador, cuidando la experiencia en cada pantalla."],
         ["¿Puedo solicitar cambios durante el diseño?", "Sí. Durante el proceso revisaremos juntos el proyecto para asegurarnos de que el resultado refleje exactamente lo que buscas."],
         ["¿Podré actualizar mi web yo mismo?", "Las webs que desarrollo están pensadas para que yo pueda encargarme de su mantenimiento y actualizaciones. Así tendrás la tranquilidad de que todo seguirá funcionando correctamente sin preocuparte por aspectos técnicos. Si necesitas hacer un cambio, solo tendrás que decírmelo."],
-        ["¿Cuánto cuesta una página web?", "Cada proyecto es diferente, por eso preparo un presupuesto personalizado según las necesidades de tu negocio. Puedes escribirme sin compromiso y te orientaré sobre la mejor opción."],
+        ["¿Cuánto cuesta una página web?", {
+          intro: "Cada negocio es diferente, por eso ofrezco distintas opciones según tus necesidades:",
+          packages: [
+            {
+              title: "Web Esencial",
+              price: "desde 450 € + IVA",
+              description: "Una página web con hasta 5 secciones, ideal para presentar tu negocio, mostrar tus servicios o productos y facilitar el contacto.",
+            },
+            {
+              title: "Web Catálogo",
+              price: "desde 650 € + IVA",
+              description: "Una web más completa, con hasta 3 páginas y un catálogo de hasta 15 productos organizados por categorías.",
+            },
+          ],
+          outro: "¿Necesitas algo diferente? También preparo presupuestos personalizados, sin compromiso.",
+          vatLabel: "Precios con IVA incluido: ",
+          vatPrices: "desde 544,50 € y 786,50 €",
+          vatClosing: ", respectivamente. Dominio, hosting y mantenimiento aparte.",
+        }],
       ],
     },
     quote:
@@ -396,7 +422,25 @@ const copy: Record<Locale, Copy> = {
         ["Will my website be mobile-friendly?", "Yes. Every website is designed and developed to work properly on mobile, tablet and desktop, with a careful experience on every screen."],
         ["Can I request changes during the design process?", "Yes. During the process we will review the project together to make sure the result reflects exactly what you are looking for."],
         ["Will I be able to update my website myself?", "The websites I develop are designed so I can take care of maintenance and updates for you. This gives you peace of mind that everything keeps working properly without worrying about technical details. If you need a change, you only have to tell me."],
-        ["How much does a website cost?", "Every project is different, so I prepare a tailored quote based on your business needs. You can write to me with no commitment and I will guide you toward the best option."],
+        ["How much does a website cost?", {
+          intro: "Every business is different, so I offer options to suit your needs:",
+          packages: [
+            {
+              title: "Essential Website",
+              price: "from €450 + VAT",
+              description: "A website with up to 5 sections, ideal for introducing your business, showcasing your services or products, and making it easy to get in touch.",
+            },
+            {
+              title: "Catalogue Website",
+              price: "from €650 + VAT",
+              description: "A more complete website with up to 3 pages and a catalogue of up to 15 products arranged by category.",
+            },
+          ],
+          outro: "Need something different? I also prepare tailored quotes with no obligation.",
+          vatLabel: "Prices including VAT: ",
+          vatPrices: "from €544.50 and €786.50",
+          vatClosing: ", respectively. Domain, hosting and maintenance are separate.",
+        }],
       ],
     },
     quote:
@@ -1090,7 +1134,25 @@ export default function SecretGardenPortfolio() {
                   <span>{question}</span>
                   <span aria-hidden="true">+</span>
                 </summary>
-                <p>{answer}</p>
+                {typeof answer === "string" ? (
+                  <p>{answer}</p>
+                ) : (
+                  <div className="faq-pricing">
+                    <p>{answer.intro}</p>
+                    {answer.packages.map(({ title, price, description }) => (
+                      <div className="faq-pricing-package" key={title}>
+                        <p className="faq-pricing-heading">
+                          <strong>{title} — {price}</strong>
+                        </p>
+                        <p>{description}</p>
+                      </div>
+                    ))}
+                    <p>{answer.outro}</p>
+                    <p className="faq-pricing-note">
+                      {answer.vatLabel}<strong>{answer.vatPrices}</strong>{answer.vatClosing}
+                    </p>
+                  </div>
+                )}
               </details>
             </FadeIn>
           ))}
